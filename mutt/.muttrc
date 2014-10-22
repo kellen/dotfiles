@@ -1,0 +1,97 @@
+set editor='vim -c "set tw=78"'
+set folder=~/Mail
+set mbox=+mbox
+set mbox_type=mbox
+set copy=yes
+set record=+sent
+set postponed=+postponed
+set move=ask-yes
+# Scrolling line by line in index mode is really a cool thing, isn't it:
+set menu_scroll=yes
+# Also very useful in pager mode (even the number of scrolling lines can be set):
+set pager_context=1
+# Mutt can split the screen into halves, so you can watch index + pager simultaneously:
+set pager_index_lines=10
+# pager_stop=yes = Don't jump to next message when at bottom of current message:
+set pager_stop=no
+# Skip the bothering prompt for recipient and subject when replying and start immediately with writing message:
+set fast_reply=yes
+
+#
+# sidebar config
+# from http://www.lunar-linux.org/mutt-sidebar/
+#
+# set up the sidebar, default not visible
+set sidebar_width=30
+set sidebar_visible=yes
+set sidebar_delim='|'
+#set sidebar_sort=yes
+
+# which mailboxes to list in the sidebar
+mailboxes ! 
+mailboxes =mbox 
+mailboxes =spam
+mailboxes =sent 
+#mailboxes =mail-2012
+#mailboxes =mail-2011
+#mailboxes =mail-2010
+#mailboxes =mail-2009
+#mailboxes =mail-2008
+#mailboxes =mail-2007
+#mailboxes =mail-2006
+#mailboxes =mail-2005
+#mailboxes =mail-2004
+#mailboxes =mail-2003
+#mailboxes =mail-2002
+#mailboxes =mail-2000
+
+# color of folders with new mail
+color sidebar_new yellow default
+
+# ctrl-n, ctrl-p to select next, prev folder
+# ctrl-o to open selected folder
+bind index \CP sidebar-prev
+bind index \CN sidebar-next
+bind index "\C<up>" sidebar-prev
+bind index "\C<down>" sidebar-next
+bind index \CO sidebar-open
+bind pager \CP sidebar-prev
+bind pager \CN sidebar-next
+bind pager "\C<up>" sidebar-prev
+bind pager "\C<down>" sidebar-next
+bind pager \CO sidebar-open
+
+# make up/down operate on the current message, not just the index list.
+# use j/k in the index list when a message is active. ... a little annoying.
+bind pager "<up>" previous-line
+bind pager "<down>" next-line
+
+# I don't need these. just for documentation purposes. See below.
+# sidebar-scroll-up
+# sidebar-scroll-down
+
+# b toggles sidebar visibility
+macro index b '<enter-command>toggle sidebar_visible<enter>'
+macro pager b '<enter-command>toggle sidebar_visible<enter>'
+
+# Remap bounce-message function to "B"
+bind index B bounce-message
+
+# colors from http://ubuntuforums.org/showthread.php?t=831020
+color normal    white black
+color attachment brightyellow black
+color hdrdefault cyan black
+color indicator black cyan
+color markers   brightred black
+color quoted    green black
+color signature cyan black
+color status    brightgreen blue
+color tilde     blue black
+color tree      red black
+color header    brightgreen black ^From:
+color header    brightcyan black ^To:
+color header    brightcyan black ^Reply-To:
+color header    brightcyan black ^Cc:
+color header    brightblue black ^Subject:
+color body      brightred black [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+
+color body      brightblue black (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+
