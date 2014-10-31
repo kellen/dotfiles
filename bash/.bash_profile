@@ -41,7 +41,7 @@ export MAVEN_OPTS="-Xms2048m -Xmx3072m -XX:-UseGCOverheadLimit"
 alias generate-password='date +%s | sha256sum | base64 | head -c 32 ; echo'
 
 highlight_func() {
-    grep --color -E "${2}|$" ${1}
+    grep --color -E "${2}|$" "${1}"
 }
 # highlight w/ grep
 alias high=highlight_func
