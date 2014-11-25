@@ -1,0 +1,7 @@
+! 38 = A, 39 = S, 40 = D
+keycode 38 = a A a A odiaeresis Odiaeresis
+keycode 39 = s S s S adiaeresis Adiaeresis
+keycode 41 = f F f F aring Aring
+keycode 40 = d D d D aring Aring
+remove Lock = Caps_Lock
+keysym Caps_Lock = Shift_L
