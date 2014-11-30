@@ -20,5 +20,12 @@ stow git
 stow mutt
 stow screen
 stow ssh
+stow xmodmap
+```
+
+And for vim:
+```
+mkdir -p ~/.vim/tmp
+mkdir -p ~/.vim/backup
 stow vim
 ```
