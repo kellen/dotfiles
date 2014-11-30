@@ -51,6 +51,9 @@ set wildmenu
 " turn on color
 if &term =~ "xterm" || &term =~ "screen"
  set t_Co=256
+ " turn off background-color erase for tmux/screen
+ " http://sunaku.github.io/vim-256color-bce.html
+ set t_ut=
  if has("terminfo")
    let &t_Sf=nr2char(27).'[3%p1%dm'
    let &t_Sb=nr2char(27).'[4%p1%dm'
