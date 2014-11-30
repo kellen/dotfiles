@@ -51,4 +51,3 @@ if hash xmodmap 2>/dev/null; then
 fi
 export SVN_EDITOR=vi
 export LC_CTYPE="en_US.UTF-8"
-export TERM=xterm-256color
