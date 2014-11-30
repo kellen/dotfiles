@@ -4,28 +4,20 @@ dotfiles
 First:
 ```
 apt-get install stow
+git clone git@github.com:kellen/dotfiles.git ~/projects/dotfiles
 ```
 
-Then:
+If there are top-level directories in `dotfiles`, make these instead
+of managing the entire directory with stow:
 ```
-cd ~
-git clone git@github.com:kellen/dotfiles.git
-```
-
-Finally:
-```
-cd ~/dotfiles
-stow bash
-stow git
-stow mutt
-stow screen
-stow ssh
-stow tmux
-stow xmodmap
+find ~/projects/dotfiles/!(README.md) -mindepth 1 -maxdepth 1 -type d -exec bash -c 'mkdir -p ~/$(basename "$@")' _ {} \;
 ```
 
-And for vim:
+Running `stow` before creating these directories (`~/.ssh`, `~/.vim`, etc) 
+results in stow managing the entire directory, which can have undesirable 
+side-effects (managed `~/.ssh/id_rsa`, `~/.vim/backup/`)
+
+Finally, run stow:
 ```
-mkdir ~/.vim
-stow vim
+cd ~/projects/dotfiles && stow -t ~ !(README.md)
 ```
