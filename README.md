@@ -10,7 +10,9 @@ git clone git@github.com:kellen/dotfiles.git ~/projects/dotfiles
 If there are top-level directories in `dotfiles`, make these instead
 of managing the entire directory with stow:
 ```
-find ~/projects/dotfiles/!(README.md) -mindepth 1 -maxdepth 1 -type d -exec bash -c 'mkdir -p ~/$(basename "$@")' _ {} \;
+find ~/projects/dotfiles/!(README.md) \
+     -mindepth 1 -maxdepth 1 -type d \
+     -exec bash -c 'mkdir -p ~/$(basename "$@")' _ {} \;
 ```
 
 Running `stow` before creating these directories (`~/.ssh`, `~/.vim`, etc) 
