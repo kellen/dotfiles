@@ -20,12 +20,12 @@ stow git
 stow mutt
 stow screen
 stow ssh
+stow tmux
 stow xmodmap
 ```
 
 And for vim:
 ```
-mkdir -p ~/.vim/tmp
-mkdir -p ~/.vim/backup
+mkdir ~/.vim
 stow vim
 ```

@@ -21,10 +21,24 @@ set nocompatible
 
 " KELLEN VIMRC settings
 
-" make these directories by hand!
+" ensure directory exists
+" from: http://stackoverflow.com/a/8462159/320220
+function! EnsureDirExists (dir)
+  if !isdirectory(a:dir)
+    if exists("*mkdir")
+      call mkdir(a:dir,'p')
+      echo "Created directory: " . a:dir
+    else
+      echo "Please create directory: " . a:dir
+    endif
+  endif
+endfunction
+
 set backup
 set backupdir=~/.vim/backup
+call EnsureDirExists(&backupdir)
 set directory=~/.vim/tmp
+call EnsureDirExists(&directory)
 
 " trying to fix slow scrolling:
 set nowrap
