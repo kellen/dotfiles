@@ -23,3 +23,8 @@ Finally, run stow:
 ```
 cd ~/projects/dotfiles && stow -t ~ !(README.md)
 ```
+
+To remove existing links to this project:
+```
+cd ~/projects/dotfiles && stow -t ~ -D !(README.md)
+```
