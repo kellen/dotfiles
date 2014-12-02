@@ -1,3 +1,10 @@
+# FIXME use email = '(none)' and implement a hook to ensure email is set locally for each project 
 [user]
 	name = Kellen Dye
-	email = kellen@cretin.net
+    email = 'kellen@cretin.net'
+[push]
+	default = simple
+[core]
+	editor = vim
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
