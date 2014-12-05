@@ -47,7 +47,9 @@ highlight_func() {
 alias high=highlight_func
 
 if hash xmodmap 2>/dev/null; then
-    xmodmap $HOME/.Xmodmap
+    if [ -n "${DISPLAY+x}" ]; then
+        xmodmap $HOME/.Xmodmap
+    fi
 fi
 export SVN_EDITOR=vi
 export LC_CTYPE="en_US.UTF-8"
