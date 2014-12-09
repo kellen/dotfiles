@@ -1,3 +1,8 @@
+! load the x keyboard mapping:
+! setxkbmap -model pc105 -layout us -variant altgr-intl
+! then load the modmap to make altgr work
+! xmodmap ~/.Xmodmap 
+
 ! 38 = A, 39 = S, 40 = D
 keycode 38 = a A a A odiaeresis Odiaeresis
 keycode 39 = s S s S adiaeresis Adiaeresis
