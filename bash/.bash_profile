@@ -17,6 +17,10 @@ fi
 # use vim, fy fan.
 export EDITOR=vim
 
+
+# alias tmux to ensure we get 256 colors
+alias tmux='TERM=xterm-256color tmux'
+
 # show the thread count (nlwp column) for all processes
 # nlwp = number of light-weight processes
 alias threads='ps -eLo pid,nlwp,cmd | uniq'
@@ -28,7 +32,8 @@ export ACK_PAGER="less -R"
 alias ports='sudo netstat -lp --numeric-ports'
 
 # 256 fy fan
-export TERM=xterm-256color
+[ -n "$TMUX" ] && export TERM=screen-256color
+#export TERM=xterm-256color
 
 # pretty prety json on the command line
 alias json='python -mjson.tool'
