@@ -2,8 +2,6 @@
 [user]
 	name = Kellen Dye
     email = 'kellen@cretin.net'
-[push]
-	default = simple
 [core]
 	editor = vim
 [url "ssh://git@github.com/"]
