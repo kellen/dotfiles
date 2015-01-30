@@ -32,7 +32,7 @@ export ACK_PAGER="less -R"
 alias ports='sudo netstat -lp --numeric-ports'
 
 # 256 fy fan
-[ -n "$TMUX" ] && export TERM=screen-256color
+#[ -n "$TMUX" ] && export TERM=screen-256color
 #export TERM=xterm-256color
 
 # pretty prety json on the command line
@@ -51,10 +51,10 @@ highlight_func() {
 # highlight w/ grep
 alias high=highlight_func
 
-if hash xmodmap 2>/dev/null; then
-    if [ -n "${DISPLAY+x}" ]; then
-        xmodmap $HOME/.Xmodmap
-    fi
-fi
+#if hash xmodmap 2>/dev/null; then
+#    if [ -n "${DISPLAY+x}" ]; then
+#        xmodmap $HOME/.Xmodmap
+#    fi
+#fi
 export SVN_EDITOR=vi
 export LC_CTYPE="en_US.UTF-8"
