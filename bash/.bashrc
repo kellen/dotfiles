@@ -12,6 +12,10 @@ case $- in
       *) return;;
 esac
 
+#
+# History
+#
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -19,9 +23,13 @@ HISTCONTROL=ignoreboth
 # append to the history file, don't overwrite it
 shopt -s histappend
 
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+# make a long-term bash history
+HOSTNAME="$(hostname)" 
+HOSTNAME_SHORT="${HOSTNAME%%.*}"
+mkdir -p ${HOME}/.history/$(date -u +%Y/%m)
+HISTSIZE=""
+HISTFILESIZE=""
+HISTFILE="${HOME}/.history/$(date -u +%Y/%m/%d.%H.%M.%S)_${HOSTNAME_SHORT}_$$"
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
