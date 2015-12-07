@@ -10,7 +10,6 @@ git clone git@github.com:kellen/dotfiles.git ~/projects/dotfiles
 If this is a new system, `extglob` may need to be enabled:
 ```
 shopt -s extglob
-
 ```
 
 If there are top-level directories in `dotfiles`, make these instead
