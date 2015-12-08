@@ -35,6 +35,9 @@ HISTFILE="${HOME}/.history/$(date -u +%Y/%m/%d.%H.%M.%S)_${HOSTNAME_SHORT}_$$"
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
+# use extended globbing where, for example, exclusions work, e.g. !(README.md)
+shopt -s extglob
+
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
 #shopt -s globstar
