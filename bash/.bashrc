@@ -142,6 +142,9 @@ highlight_func() {
 # highlight w/ grep
 alias high=highlight_func
 
+#play wfmu
+alias wfmu='mplayer -playlist "http://www.wfmu.org/wfmu.pls"'
+
 export SVN_EDITOR=vi
 export LC_CTYPE="en_US.UTF-8"
 
