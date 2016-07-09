@@ -148,3 +148,7 @@ alias wfmu='mplayer -playlist "http://www.wfmu.org/wfmu.pls"'
 export SVN_EDITOR=vi
 export LC_CTYPE="en_US.UTF-8"
 
+export SCALA_HOME=~/bin/scala
+PATH="${PATH}":"${SCALA_HOME}/bin"
+
+PATH="${PATH}":~/bin/nim/bin
