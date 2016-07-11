@@ -152,3 +152,6 @@ export SCALA_HOME=~/bin/scala
 PATH="${PATH}":"${SCALA_HOME}/bin"
 
 PATH="${PATH}":~/bin/nim/bin
+
+# disable "did you mean" suggestions, since these are slow
+unset command_not_found_handle
