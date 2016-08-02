@@ -145,6 +145,21 @@ alias high=highlight_func
 #play wfmu
 alias wfmu='mplayer -playlist "http://www.wfmu.org/wfmu.pls"'
 
+# per http://www.commandlinefu.com/commands/view/7535/look-up-a-unicode-character-by-name
+# requires libunicode-string-perl package
+unicode_by_name() {
+    if [ "$#" -ne 1 ]; then
+        echo "Usage: ugrep PATTERN"
+        return
+    fi
+    egrep -i "^[0-9a-f]{4,} .*$*" $(locate -l 1 CharName.pm) | \
+    while read h d; do 
+        /usr/bin/printf "\U$(printf "%08x" 0x$h)\tU+%s\t%s\n" $h "$d"; 
+    done
+}
+
+alias ugrep=unicode_by_name
+
 export SVN_EDITOR=vi
 export LC_CTYPE="en_US.UTF-8"
 
