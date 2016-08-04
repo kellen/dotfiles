@@ -148,13 +148,19 @@ alias wfmu='mplayer -playlist "http://www.wfmu.org/wfmu.pls"'
 # per http://www.commandlinefu.com/commands/view/7535/look-up-a-unicode-character-by-name
 # requires libunicode-string-perl package
 unicode_by_name() {
-    if [ "$#" -ne 1 ]; then
+    if [ "$#" -lt 1 ]; then
         echo "Usage: ugrep PATTERN"
         return
     fi
-    egrep -i "^[0-9a-f]{4,} .*$*" $(locate -l 1 CharName.pm) | \
+    FOO=`cat $(locate -l 1 CharName.pm)`
+    for f in "$@"; do
+        FOO=`echo "${FOO}" | egrep -i "^[0-9a-f]{4,} .*$f"` 
+    done
+    echo "${FOO}" | \
     while read h d; do 
-        /usr/bin/printf "\U$(printf "%08x" 0x$h)\tU+%s\t%s\n" $h "$d"; 
+        if [[ "$h" != "" && "$d" != "" ]]; then
+           /usr/bin/printf "\U$(printf "%08x" 0x$h)\tU+%s\t%s\n" $h "$d"; 
+        fi
     done
 }
 
