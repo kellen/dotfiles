@@ -21,6 +21,11 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
 if hash xmodmap 2>/dev/null; then
     if [ -n "${DISPLAY+x}" ]; then
         setxkbmap -model pc105 -layout us -variant altgr-intl
