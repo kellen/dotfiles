@@ -185,3 +185,10 @@ unset command_not_found_handle
 if [ -e ~/.local/bin/virtualenvwrapper.sh ]; then
     source ~/.local/bin/virtualenvwrapper.sh
 fi
+
+# android studio
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
